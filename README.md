@@ -36,3 +36,41 @@ Atomic Transactions: Ensures that all operations within a transaction are comple
 Row-Level Locking: Prevents race conditions by locking rows during critical operations.
 
 Graceful Error Handling: Notifies users of stock unavailability without crashing the system.
+
+
+
+
+
+## II. elevator optimization ##
+
+First, let's verify the distance calculations:
+
+Going up first (upward_distance):
+
+Current floor: 2
+Path: 2 → 3 → 4 → 1
+Distance: |3-2| + |4-3| + |1-4| = 1 + 1 + 3 = 5 units
+
+Going down first (downward_distance):
+
+Current floor: 2
+Path: 2 → 1 → 3 → 4
+Distance: |1-2| + |3-1| + |4-3| = 1 + 2 + 1 = 4 units
+
+Since downward_distance (4) < upward_distance (5), the algorithm correctly chose "down" as the direction.
+
+The output shows:
+
+Direction: "down" 
+Path: [1, 3, 4] 
+
+## Here using DSA Concepts:- 
+
+1. Sorting: Ensures that the lift serves requests in the most efficient order.
+
+2. Grouping: Helps categorize requests based on direction, simplifying decision-making.
+
+3. Greedy Algorithm: Provides a locally optimal solution (minimizing distance at each step).
+
+4. Decision-Making: Ensures the lift moves in the most efficient direction.
+
